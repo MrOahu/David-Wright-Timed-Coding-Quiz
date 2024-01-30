@@ -22,7 +22,17 @@ var quizQuestions = [
       choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
       answer: "parentheses"
     },
-  ]
+    {
+        title: "Beyonce Knowles' husband is:",
+        choices: ["Jay-Z", "Ja Rule", "Nas", "Tupac Shakur"],
+        answer: "Jay-Z"
+    },
+    {
+        title: "The world's largest country by area is:",
+        choices: ["China", "Russia", "Canada", "Jamaica"],
+
+    },
+  
 
 //create startQuiz function that starts time
 //create a function 
