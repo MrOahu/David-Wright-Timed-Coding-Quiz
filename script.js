@@ -30,9 +30,9 @@ var quizQuestions = [
     {
         title: "The world's largest country by area is:",
         choices: ["China", "Russia", "Canada", "Jamaica"],
-
+        answer: "Russia"
     },
-  
+]
 
 //create startQuiz function that starts time
 //create a function 
@@ -51,23 +51,49 @@ displayQuestions()
 
 //create function that displays questions
 function displayQuestions(){
-var currentQuestion = quizQuestions[questionIndex]
-questionTitle.textContent = currentQuestion.title
 
+var currentQuestion = quizQuestions[questionIndex]
+
+questionTitle.textContent = currentQuestion.title
+// clears out previous answer choices
+choices.innerHTML = ""
+//renders new answer choices and appends them to choices div
 currentQuestion.choices.forEach(function(choice){
 
     var newButton = document.createElement("button")
     newButton.textContent = choice
-
-
+    newButton.setAttribute("value", choice)
+    // attach checkAnswer function to compare value against correct answer
+    newButton.onclick=checkAnswer
     // append = attach
     choices.append(newButton)
 })
 }
 // create function that checks answer choices when clicked
-
+function checkAnswer(){
+    if (this.value === quizQuestions[questionIndex].answer) {
+        console.log("correct")
+        alert("CORRECT!")
+    }
+    else{
+        console.log("incorrect")
+        alert("INCORRECT!")
+    }
+    // moves to next questionIndex
+    questionIndex++
+    // if we run out of questions run stopQuiz function, otherwise render next question
+    if (questionIndex===quizQuestions.length){
+        stopQuiz()
+    } else {
+        displayQuestions()
+    }
+    
+}
 // create function to end quiz and stop time
-
+function stopQuiz(){
+    questions.setAttribute("class","hide")
+    endScreen.removeAttribute("class", "hide")
+}
 
 
 
