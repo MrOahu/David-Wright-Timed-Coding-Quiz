@@ -10,7 +10,7 @@ var initials = document.querySelector("#initials")
 var submit = document.querySelector("#submit")
 var secondsLeft = 60
 var questionIndex = 0
-
+var timerInterval;
 var quizQuestions = [
     {
       title: "Commonly used data types DO NOT include:",
@@ -40,9 +40,13 @@ function startQuiz (){
 startScreen.setAttribute("class", "hide")
 questions.removeAttribute("class", "hide")
 
-setInterval(function(){
+timerInterval = setInterval(function(){
 secondsLeft = secondsLeft-1 //subtracts 1 from secondsLeft
 time.textContent = secondsLeft // updates time div to display newest secondsLeft value
+if (secondsLeft <=0) {
+    clearInterval (timerInterval)
+    console.log("quiz over")
+}
 }, 1000) //runs each second
 
 /// call displayQuestions function 
@@ -78,6 +82,7 @@ function checkAnswer(){
     else{
         console.log("incorrect")
         alert("INCORRECT!")
+        // make sure to penalize user for incorrect answer
     }
     // moves to next questionIndex
     questionIndex++
@@ -93,6 +98,8 @@ function checkAnswer(){
 function stopQuiz(){
     questions.setAttribute("class","hide")
     endScreen.removeAttribute("class", "hide")
+    clearInterval (timerInterval)
+    finalScore.textContent = secondsLeft
 }
 
 
