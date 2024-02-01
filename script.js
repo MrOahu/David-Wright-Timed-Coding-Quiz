@@ -83,9 +83,13 @@ function checkAnswer(){
         console.log("incorrect")
         alert("INCORRECT!")
         // make sure to penalize user for incorrect answer
+        secondsLeft = secondsLeft -10
+        time.textContent = secondsLeft
     }
+
     // moves to next questionIndex
-    questionIndex++
+    questionIndex++ //adds 1 to previous questionIndex
+
     // if we run out of questions run stopQuiz function, otherwise render next question
     if (questionIndex===quizQuestions.length){
         stopQuiz()
@@ -102,7 +106,16 @@ function stopQuiz(){
     finalScore.textContent = secondsLeft
 }
 
+function saveScore (){
+    var userInitials = initials.value
+    var userScore = secondsLeft
+    var scoreObject = {name: userInitials, score: userScore}
+
+    var scoreArray = JSON.parse(localStorage.getItem("scores")) || []
+    scoreArray.push (scoreObject)
+    localStorage.setItem ("scores", JSON.stringify(scoreArray))
+}
 
 
-
+submit.onclick = saveScore
 startBtn.onclick = startQuiz
