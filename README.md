@@ -4,7 +4,8 @@
 Created timed coding quiz with multiple-choice questions. Technologies used: HTML, CSS, and JavaScript.
 
 ##Application Image
-![image](https://github.com/MrOahu/David-Wright-Timed-Coding-Quiz/assets/153314451/90c86604-176d-4f9f-a51f-9f05d428c4bb)
+
+![image](https://github.com/MrOahu/David-Wright-Timed-Coding-Quiz/assets/153314451/ecc57b90-4a94-4684-85c1-6a3517167bad)
 
 
 
