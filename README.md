@@ -16,7 +16,7 @@ Created timed coding quiz with multiple-choice questions. Technologies used: HTM
 
 GitHub Repository URL: https://github.com/MrOahu/David-Wright-Timed-Coding-Quiz
 
-Live Application URL: file:///C:/Users/david/Desktop/my-coding-folder/David-Wright-Timed-Coding-Quiz/index.html
+Live Application URL: https://mroahu.github.io/David-Wright-Timed-Coding-Quiz/
 
 ## Author
 David Wright
