@@ -115,7 +115,17 @@ function saveScore (){
     scoreArray.push (scoreObject)
     localStorage.setItem ("scores", JSON.stringify(scoreArray))
 }
+function displayScore (){
+    var scoreList = document.querySelector ("#scoreList")
+    var scoreArray = JSON.parse(localStorage.getItem("scores")) || []  
+    for(var i=0; i<scoreArray.length; i++){
+        var scoreItem = document.createElement("li")
+        scoreItem.textContent = "name: "+ scoreArray [i].name + ", " + "score: "+ scoreArray[i].score
+        scoreList.append(scoreItem)
+    }
+} 
+displayScore()
 
-
+ 
 submit.onclick = saveScore
 startBtn.onclick = startQuiz
